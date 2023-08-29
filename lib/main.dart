@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './questao.dart';
 
 main() => runApp(const PerguntasApp()); // raiz
 
@@ -14,7 +15,8 @@ class PerguntasApp extends StatefulWidget {
 }
 
 class _PerguntasAppState extends State<PerguntasApp> {
-  var perguntaSelecionada = 0;
+  //classe privada, possui o "_"
+  var _perguntaSelecionada = 0;
   @override //precisa implementar esse método
   Widget build(BuildContext context) {
     final List<String> perguntas = [
@@ -22,12 +24,12 @@ class _PerguntasAppState extends State<PerguntasApp> {
       'Qual é o seu animal favorito?'
     ];
 
-    void responder() {
+    void _responder() {
       setState(() {
-        perguntaSelecionada++;
+        _perguntaSelecionada++;
       });
       //O que está sendo modificado
-      print(perguntaSelecionada);
+      print(_perguntaSelecionada);
     }
 
     // void Function() funcaoQueRetornaUmaOutraFuncao() {
@@ -44,15 +46,15 @@ class _PerguntasAppState extends State<PerguntasApp> {
         body: Column(
           children: [
             //lista de Widgets
-            Text(perguntas[perguntaSelecionada]),
+            Questao(texto: perguntas[_perguntaSelecionada]),
             ElevatedButton(
-                onPressed: responder,
+                onPressed: _responder,
                 //responder() --chamar a função != responder--função como paramentro do Widget ElevatedButton
                 child: const Text('Resposta 1')),
             ElevatedButton(
-                onPressed: responder, child: const Text('Resposta 2')),
+                onPressed: _responder, child: const Text('Resposta 2')),
             ElevatedButton(
-                onPressed: responder, child: const Text('Resposta 3')),
+                onPressed: _responder, child: const Text('Resposta 3')),
 
             // ElevatedButton(
             //     onPressed: funcaoQueRetornaUmaOutraFuncao(),
