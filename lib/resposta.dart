@@ -4,7 +4,7 @@ class Resposta extends StatelessWidget {
   final String resposta;
   final void Function() quandoSelecionado;
 
-   const Resposta(this.resposta, this.quandoSelecionado, {super.key});
+  const Resposta(this.resposta, this.quandoSelecionado, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +13,8 @@ class Resposta extends StatelessWidget {
       child: ElevatedButton(
         onPressed: quandoSelecionado,
         style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white, //change background color of button
-          backgroundColor: Colors.purple.shade300, //change text color of button
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.indigo,
         ),
         child: Text(
           resposta,
